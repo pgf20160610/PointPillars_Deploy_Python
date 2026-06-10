@@ -1,0 +1,50 @@
+{
+  "version": 2,
+  "description": "Checkpoint-first PointPillars model manifest using zhulf0804/PointPillars pretrained epoch_160.pth. Configure export.external_export_command for your exporter.",
+  "assets": [
+    {
+      "name": "pointpillars_checkpoint",
+      "type": "checkpoint",
+      "url": "https://raw.githubusercontent.com/zhulf0804/PointPillars/main/pretrained/epoch_160.pth",
+      "output": "models/checkpoints/epoch_160.pth",
+      "sha256": "",
+      "required": true
+    }
+  ],
+  "export": {
+    "mode": "external",
+    "checkpoint": "models/checkpoints/epoch_160.pth",
+    "config": "configs/pointpillars_kitti.yaml",
+    "pfn_output": "models/pfn.onnx",
+    "backbone_output": "models/backbone_head.onnx",
+    "opset": 17,
+    "max_pillars": 12000,
+    "max_points": 32,
+    "pillar_feature_dim": 10,
+    "pfn_out_channels": 64,
+    "bev_channels": 64,
+    "bev_h": 496,
+    "bev_w": 432,
+    "external_export_command": "python tools/export_pointpillars_split.py --ckpt {checkpoint} --config {config} --pfn-out {pfn_output} --backbone-out {backbone_output} --opset {opset}"
+  },
+  "verify": {
+    "pfn_model": "models/pfn.onnx",
+    "backbone_model": "models/backbone_head.onnx",
+    "providers": [
+      "CPUExecutionProvider"
+    ],
+    "rtol": 0.001,
+    "atol": 0.001,
+    "seed": 2026
+  },
+  "simplify": {
+    "pfn_input": "pillar_features:1,12000,32,10 pillar_mask:1,12000,32,1",
+    "backbone_input": "bev_feature:1,64,496,432",
+    "pfn_output": "models/pfn_sim.onnx",
+    "backbone_output": "models/backbone_head_sim.onnx"
+  },
+  "mnn": {
+    "pfn_output": "models/pfn.mnn",
+    "backbone_output": "models/backbone_head.mnn"
+  }
+}

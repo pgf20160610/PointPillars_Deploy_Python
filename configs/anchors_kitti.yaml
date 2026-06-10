@@ -1,0 +1,6 @@
+class_names: [Car, Pedestrian, Cyclist]
+anchor_sizes: [3.9, 1.6, 1.56, 0.8, 0.6, 1.73, 1.76, 0.6, 1.73]
+anchor_rotations: [0.0, 1.57079632679]
+anchor_bottom_height: -1.78
+feature_stride: 2
+bev_y_reverse: true

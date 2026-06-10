@@ -1,0 +1,5 @@
+# Cline Workspace Rules: OpenSpec + CODEX Workflow
+
+Before creating or modifying source/config/docs for non-trivial feature work or behavior changes, Cline must read `openspec/project.md`, create OpenSpec artifacts under `openspec/changes/<change-id>/`, and obtain explicit human confirmation before implementation.
+
+Use the global rule at `$CLINE_OPENSPEC_GLOBAL_RULE` when available.

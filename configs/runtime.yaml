@@ -1,0 +1,12 @@
+runtime_backend: dummy
+num_threads: 4
+device: cpu
+pfn_model: models/pfn_sim.onnx
+backbone_model: models/backbone_head_sim.onnx
+visualize: false
+image_path: data/sample.png
+calib_path: data/sample_calib.txt
+label_path: data/sample_label.txt
+bev_output: outputs/pc_pred_cpp.png
+image_output: outputs/img_3dbbox_cpp.png
+bev_reference_style: true

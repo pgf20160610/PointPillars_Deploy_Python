@@ -1,0 +1,13 @@
+
+# Refactored PointPillars KITTI config aligned with zhulf0804/PointPillars inference.
+class_names: [Pedestrian, Cyclist, Car]
+point_cloud_range: [0.0, -39.68, -3.0, 69.12, 39.68, 1.0]
+pcd_limit_range: [0.0, -40.0, -3.0, 70.4, 40.0, 0.0]
+voxel_size: [0.16, 0.16, 4.0]
+max_num_points: 32
+max_voxels_train: 16000
+max_voxels_test: 40000
+nms_pre: 100
+nms_thr: 0.01
+score_thr: 0.1
+max_num: 50

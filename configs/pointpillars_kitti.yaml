@@ -1,0 +1,40 @@
+# Simple flat YAML-style config parsed by the dependency-free loader.
+point_cloud_range: [0.0, -39.68, -3.0, 69.12, 39.68, 1.0]
+voxel_size: [0.16, 0.16, 4.0]
+grid_size: [432, 496, 1]
+max_points_per_pillar: 32
+max_pillars: 12000
+num_pillar_features: 10
+pfn_out_channels: 64
+runtime_backend: dummy
+num_threads: 4
+device: cpu
+pfn_model: models/pfn_sim.onnx
+backbone_model: models/backbone_head_sim.onnx
+class_names: [Pedestrian, Cyclist, Car]
+anchor_sizes: [0.6, 0.8, 1.73, 0.6, 1.76, 1.73, 1.6, 3.9, 1.56]
+anchor_bottom_heights: [-0.60, -0.60, -1.78]
+anchor_rotations: [0.0, 1.57079632679]
+anchor_bottom_height: -1.78
+feature_stride: 2
+bev_y_reverse: false
+num_classes: 3
+score_threshold: 0.1
+nms_threshold: 0.01
+nms_pre: 100
+max_detections: 100
+
+# C++ visualization options used by pointpillars_demo when built with -DUSE_OPENCV=ON.
+visualize: false
+image_path: data/sample.png
+calib_path: data/sample_calib.txt
+label_path: data/sample_label.txt
+bev_output: outputs/pc_pred_cpp.png
+image_output: outputs/img_3dbbox_cpp.png
+show_gt: true
+bev_view: forward-up
+bev_reference_style: true
+bev_width: 1786
+bev_height: 1122
+x_range: [0.0, 70.4]
+y_range: [-40.0, 40.0]
